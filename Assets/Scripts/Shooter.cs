@@ -1,29 +1,49 @@
-using System.Collections;
+// Script by : Nanatchy
+
+using System;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.InputSystem;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] private float fireRate = 0.5f;
-    [SerializeField] private Projectile bullet;
+    #region Attributs
+
     [SerializeField] private Transform firePoint;
-   
     
-    private Coroutine shoot_routine = null;
-   
+    [SerializeField] private Projectile bullet;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float fireRate = 0.5f;
+    
+    private Coroutine _shootRoutine = null;
+
+    #endregion
+
+    #region Methods
+
+
+
+    #endregion
+
+    #region Behaviors
+    
+    void OnShoot(InputValue value)
     {
+        if (value.isPressed)
+        {
+            if (_shootRoutine != null)
+                StopCoroutine(_shootRoutine);
+
+            _shootRoutine = StartCoroutine(nameof(Fire));
+        }
+        else
+        {
+            StopCoroutine(nameof(Fire));
+            _shootRoutine = null;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    IEnumerator Fire()
+    private IEnumerator Fire()
     {
         while (true)
         {
@@ -32,19 +52,9 @@ public class Shooter : MonoBehaviour
         }
     }
     
-    void OnShoot(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            if (shoot_routine != null)
-                StopCoroutine(shoot_routine);
+    #endregion
+    
 
-            shoot_routine = StartCoroutine("Fire");
-        }
-        else
-        {
-            StopCoroutine("Fire");
-            shoot_routine = null;
-        }
-    }
+  
+   
 }

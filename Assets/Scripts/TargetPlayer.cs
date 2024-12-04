@@ -1,23 +1,21 @@
-using System;
-using UnityEngine;
+// Script by : Nanatchy
 
+using UnityEngine;
 public class TargetPlayer : MonoBehaviour
 {
+    #region Attributs
+    
     public bool playerIsHere = false;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    #endregion
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #region Methods
 
-    void OnTriggerEnter(Collider other)
+    #endregion
+
+    #region Behaviors
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -25,11 +23,14 @@ public class TargetPlayer : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             playerIsHere = false;
         }
     }
+    
+    
+    #endregion
 }

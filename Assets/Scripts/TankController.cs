@@ -1,24 +1,38 @@
+// Script by : Nanatchy
+
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+
 public class TankController : MonoBehaviour
 {
+    #region Attributs
+
+    [SerializeField] private GameObject tower;
+    
+    [SerializeField] private Damage damage;
+    
     [SerializeField] private float speed = 0f;
     [SerializeField] private float rotation = 0f;
-    [SerializeField] private GameObject Tower_;
+    [SerializeField] private int life = 0;
     
     private float _upDownInput = 0f;
     private float _rightLeftInput = 0f;
-    private float rotate = 0.0f;
+    private float _rotate = 0.0f;
     
-    //private Rigidbody _rigidbody;
+    #endregion
+
+    #region Methods
+
     
-    void Start()
-    {
-        //_rigidbody = GetComponent<Rigidbody>();
-    }
-    void Update()
+    
+    #endregion
+
+    #region Behaviors
+
+    private void Update()
     {
         if (_upDownInput > 0.5)
         {
@@ -32,36 +46,49 @@ public class TankController : MonoBehaviour
         if (_rightLeftInput > 0.5)
         {
             transform.Rotate(0, rotation, 0);
-            Tower_.transform.Rotate(0, -rotation, 0);
+            tower.transform.Rotate(0, -rotation, 0);
         }
         else if (_rightLeftInput < -0.5)
         {
             transform.Rotate(0, -rotation, 0);
-            Tower_.transform.Rotate(0, rotation, 0);
+            tower.transform.Rotate(0, rotation, 0);
         }
         
-        if (rotate < -0.5)
+        if (_rotate < -0.5)
         {
-            Tower_.transform.Rotate(0, -rotation, 0);
+            tower.transform.Rotate(0, -rotation, 0);
         }
-        else if (rotate > 0.5)
+        else if (_rotate > 0.5)
         {
-            Tower_.transform.Rotate(0, rotation, 0);
+            tower.transform.Rotate(0, rotation, 0);
+        }
+
+        if (damage.damage)
+        {
+            life--;
+            damage.damage = false;
+        }
+
+        if (life <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 
-    void OnUpDown(InputValue value)
+    private void OnUpDown(InputValue value)
     {
         _upDownInput = value.Get<float>();
     }
 
-    void OnLeftRight(InputValue value)
+    private void OnLeftRight(InputValue value)
     {
         _rightLeftInput = value.Get<float>();
     }
-    
-    void OnMoveRL(InputValue value)
+
+    private void OnMoveRL(InputValue value)
     {
-        rotate = value.Get<float>();
+        _rotate = value.Get<float>();
     }
+    
+    #endregion
 }

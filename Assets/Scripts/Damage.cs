@@ -3,37 +3,31 @@
 using System;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     #region Attributs
     
-    [SerializeField] private float bulletForce = 10;
     [SerializeField] private string tagName;
-
+    
+    public bool damage = false;
+    
     #endregion
 
     #region Methods
-    
+
     
     
     #endregion
 
     #region Behaviors
-
-    private void Start()
-    {
-       
-        GetComponent<Rigidbody>().linearVelocity = transform.forward * bulletForce;
-       
-        Destroy(gameObject, 2);
-    }
-   
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(tagName))
         {
-            Destroy(gameObject);
+            damage = true;
         }
     }
+   
     #endregion
 }
