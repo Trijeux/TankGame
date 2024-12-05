@@ -2,6 +2,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Damage : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Damage : MonoBehaviour
     [SerializeField] private string tagName;
     
     public bool damage = false;
+    public bool isDead = false;
     
     #endregion
 

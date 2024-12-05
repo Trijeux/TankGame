@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2826274553115034120}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004000008, y: -0.47500008, z: 0.027999878}
-  m_LocalScale: {x: 1.1768, y: 1.1768, z: 1.1768}
+  m_LocalPosition: {x: 0.004000008, y: -1.17, z: 0.027999878}
+  m_LocalScale: {x: 1.1768, y: 2.56766, z: 1.1768}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6037905870699093498}
@@ -136,8 +136,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7772396247267820925}
   - {fileID: 2594172941839759090}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Missile
   damage: 0
+  isDead: 0
 --- !u!65 &5823183286046102715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -176,8 +177,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3221008, y: 1.856495, z: 1.3074596}
-  m_Center: {x: -0.000000059604645, y: -0.12810832, z: 0.021961331}
+  m_Size: {x: 1.3221008, y: 4.2061415, z: 1.3074596}
+  m_Center: {x: -0.000000059604645, y: -0.438366, z: 0.021961331}
 --- !u!1 &6688996928051359127
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +275,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7806884716699132566
 PrefabInstance:

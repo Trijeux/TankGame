@@ -36,7 +36,7 @@ public class Turret : MonoBehaviour
     {
         if (target.playerIsHere)
         {
-            var randomNumberAim = Random.Range(-10f, 10f);
+            var randomNumberAim = Random.Range(-15f, 15f);
             
             var direction = player.position - transform.position;
 
@@ -66,6 +66,7 @@ public class Turret : MonoBehaviour
         if (life <= 0)
         {
             turretCollider.enabled = false;
+            damage.isDead = true;
             Destroy(gameObject);
         }
     }

@@ -1,9 +1,11 @@
 // Script by : Nanatchy
 
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 
 public class TankController : MonoBehaviour
@@ -11,6 +13,8 @@ public class TankController : MonoBehaviour
     #region Attributs
 
     [SerializeField] private GameObject tower;
+    [SerializeField] private GameObject gameOver;
+    [SerializeField] private Text lifeText;
     
     [SerializeField] private Damage damage;
     
@@ -34,6 +38,8 @@ public class TankController : MonoBehaviour
 
     private void Update()
     {
+        lifeText.text = "Life : " + life;
+        
         if (_upDownInput > 0.5)
         {
             transform.position += transform.forward * (speed * Time.deltaTime);
@@ -71,6 +77,12 @@ public class TankController : MonoBehaviour
 
         if (life <= 0)
         {
+            damage.isDead = true;
+        }
+
+        if (damage.isDead)
+        {
+            gameOver.SetActive(true);
             gameObject.SetActive(false);
         }
     }
