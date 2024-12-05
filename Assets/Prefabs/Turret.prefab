@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretCollider: {fileID: 5823183286046102715}
   firePoint: {fileID: 8174786130698584754}
-  player: {fileID: 672221882971161554, guid: a30540c41d7d5ed4281d72b4916afb5e, type: 3}
+  player: {fileID: 0}
   bullet: {fileID: -1710207239287422968, guid: e9ca5c9e64aec1541a69a981157ba655, type: 3}
   target: {fileID: 5258747098691605863}
   damage: {fileID: 3077239692375679065}

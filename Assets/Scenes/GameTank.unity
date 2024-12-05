@@ -248,6 +248,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2949005795359380757, guid: 8ab0446043be28140b481e618408dd31, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2136597644}
     - target: {fileID: 5909175463376380962, guid: 8ab0446043be28140b481e618408dd31, type: 3}
       propertyPath: m_Name
       value: Turret
@@ -678,6 +682,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2136597644 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 672221882971161554, guid: a30540c41d7d5ed4281d72b4916afb5e, type: 3}
+  m_PrefabInstance: {fileID: 1910439302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
