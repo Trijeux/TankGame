@@ -25,9 +25,9 @@ public class TurretsManager : MonoBehaviour
 	    
 	    for (int i = 0; i < transform.childCount; i++)
 	    {
-		    var enfant = transform.GetChild(i);
+		    var child = transform.GetChild(i);
 		    
-		    var script = enfant.GetComponent<Damage>();
+		    var script = child.GetComponent<Damage>();
 		    if (script != null) 
 		    {
 			    turrets.Add(script);
@@ -45,7 +45,7 @@ public class TurretsManager : MonoBehaviour
 
 	private void Update()
 	{
-		numbTurret.text = "Turrets : " + turrets.Count.ToString();
+		numbTurret.text = "Turrets : " + turrets.Count;
 		
 		foreach (var turret in turrets.ToList().Where(turret => turret.isDead))
 		{
